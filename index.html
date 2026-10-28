@@ -1,91 +1,688 @@
-<footer class="footer" id="contato">
-  <div class="container">
-    <div class="row g-4">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modelo demonstrativo de loja de moda feminina com catálogo editorial e informações institucionais.">
+  <title>Essenza Moda | Coleções Femininas</title>
 
-      <!-- INSTITUCIONAL -->
-      <div class="col-lg-3 col-md-6">
-        <h4>INSTITUCIONAL</h4>
-        <ul>
-          <li><a href="https://www.canal.com.br/institucional/sobre-nos" target="_blank" rel="noopener noreferrer">QUEM SOMOS</a></li>
-          <li><a href="https://www.canal.com.br/institucional/nossas-lojas" target="_blank" rel="noopener noreferrer">NOSSAS LOJAS</a></li>
-          <li><a href="https://www.canal.com.br/institucional/trabalhe-conosco" target="_blank" rel="noopener noreferrer">TRABALHE CONOSCO</a></li>
-          <li><a href="https://www.canal.com.br/institucional/franquias-e-multimarcas" target="_blank" rel="noopener noreferrer">FRANQUIAS E MULTIMARCAS</a></li>
-          <li><a href="https://www.canal.com.br/institucional/politicas-de-privacidades" target="_blank" rel="noopener noreferrer">POLÍTICAS DE PRIVACIDADE</a></li>
-          <li><a href="https://www.canal.com.br/institucional/quero-trocar" target="_blank" rel="noopener noreferrer">TROCAS E DEVOLUÇÕES</a></li>
-          <li><a href="https://www.canal.com.br/institucional/mapa-do-site" target="_blank" rel="noopener noreferrer">MAPA DO SITE</a></li>
-          <li><a href="https://www.canal.com.br/institucional/contato" target="_blank" rel="noopener noreferrer">FALE CONOSCO</a></li>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #282723;
+      --sand: #f6f3ee;
+      --beige: #e8e0d4;
+      --muted: #77736d;
+      --line: #e6e2dc;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      background: white;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover { color: #88735c; }
+
+    .top-strip {
+      background: var(--ink);
+      color: white;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 1.3px;
+      padding: 10px;
+    }
+
+    .navbar {
+      background: white;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+
+    .brand small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    .nav-link {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin: 0 10px;
+    }
+
+    .hero {
+      position: relative;
+      height: min(75vw, 650px);
+      min-height: 440px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.45), rgba(0,0,0,.05)),
+        url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85') center/cover;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 6vw, 85px);
+      line-height: 1.1;
+      max-width: 720px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .btn-shop {
+      display: inline-block;
+      background: var(--ink);
+      color: white;
+      border: 1px solid var(--ink);
+      padding: 14px 32px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .btn-shop:hover {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn-light-custom {
+      background: white;
+      border-color: white;
+      color: var(--ink);
+    }
+
+    .btn-light-custom:hover {
+      color: white;
+      border-color: white;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(31px, 4vw, 47px);
+    }
+
+    .category {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      height: 440px;
+      background: var(--sand);
+    }
+
+    .category img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .category:hover img { transform: scale(1.05); }
+
+    .category .label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,.92);
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .product-image {
+      position: relative;
+      background: var(--sand);
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .product-image:hover img { transform: scale(1.04); }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: white;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 7px 11px;
+    }
+
+    .product-info {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .product-info h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+
+    .editorial {
+      background: var(--sand);
+    }
+
+    .editorial img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+    }
+
+    .editorial-copy {
+      padding: 50px 8%;
+    }
+
+    .editorial-copy h2 {
+      font-size: clamp(34px, 4vw, 55px);
+      line-height: 1.2;
+      margin: 20px 0;
+    }
+
+    .editorial-copy p {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--muted);
+      max-width: 500px;
+    }
+
+    .benefit {
+      text-align: center;
+      padding: 25px;
+    }
+
+    .benefit i {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .benefit h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .benefit p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .newsletter {
+      background: var(--beige);
+      padding: 75px 0;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 40px;
+    }
+
+    .newsletter p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .newsletter input {
+      padding: 15px;
+      border-radius: 0;
+      border: 1px solid var(--line);
+    }
+
+    .newsletter button {
+      background: var(--ink);
+      color: white;
+      border: 0;
+      padding: 15px 25px;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .footer {
+      background: #24231f;
+      color: white;
+      padding: 70px 0 25px;
+    }
+
+    .footer h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .footer p, .footer a, .footer li {
+      color: #ccc8c1;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .footer a:hover { color: white; }
+
+    .footer ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-social a {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #777;
+      border-radius: 50%;
+      margin-right: 6px;
+      font-size: 16px;
+    }
+
+    .copyright {
+      border-top: 1px solid #484741;
+      margin-top: 45px;
+      padding-top: 20px;
+      color: #aaa;
+      font-size: 11px;
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 55px 0; }
+      .category { height: 350px; }
+      .product-image img { height: 290px; }
+      .editorial img { height: 350px; }
+      .editorial-copy { padding: 45px 20px; }
+      .hero { min-height: 420px; }
+      .newsletter h2 { font-size: 32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    INSPIRAÇÃO PARA UM ESTILO QUE É SÓ SEU
+  </div>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand" href="#inicio">
+        ESSENZA
+        <small>MODA FEMININA</small>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#colecoes">Coleções</a></li>
+          <li class="nav-item"><a class="nav-link" href="#destaques">Destaques</a></li>
+          <li class="nav-item"><a class="nav-link" href="#editorial">Editorial</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
         </ul>
-      </div>
 
-      <!-- MINHA CONTA -->
-      <div class="col-lg-3 col-md-6">
-        <h4>MINHA CONTA — SITE OFICIAL</h4>
-        <ul>
-          <li><a href="https://www.canal.com.br/account" target="_blank" rel="noopener noreferrer">MEUS PEDIDOS</a></li>
-          <li><a href="https://www.canal.com.br/account/my-data" target="_blank" rel="noopener noreferrer">MEU PERFIL</a></li>
-          <li><a href="https://www.canal.com.br/account/my-data" target="_blank" rel="noopener noreferrer">TROCAR SENHA</a></li>
-        </ul>
+        <div class="d-none d-lg-flex gap-3">
+          <a href="#newsletter" aria-label="Newsletter"><i class="bi bi-envelope"></i></a>
+          <a href="#destaques" aria-label="Coleções"><i class="bi bi-heart"></i></a>
+        </div>
       </div>
+    </div>
+  </nav>
 
-      <!-- REDES SOCIAIS -->
-      <div class="col-lg-3 col-md-6">
-        <h4>REDES SOCIAIS OFICIAIS</h4>
-        <div class="social">
-          <a href="https://www.facebook.com/canalconceptoficial/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/canalconcept/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a href="https://br.pinterest.com/canalconcept/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-            <i class="bi bi-pinterest"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/canal-concept/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="bi bi-linkedin"></i>
-          </a>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <p>Editorial de moda feminina</p>
+        <h1>Elegância para todos os momentos.</h1>
+        <a href="#colecoes" class="btn-shop btn-light-custom mt-4">
+          Conheça as coleções
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="colecoes">
+      <div class="container">
+        <div class="section-heading">
+          <span>Descubra seu estilo</span>
+          <h2>Explore as coleções</h2>
         </div>
 
-        <h4 class="mt-4">FORMAS DE PAGAMENTO DO SITE OFICIAL</h4>
-        <img
-          src="https://canal.fbitsstatic.net/sf/img/footer/pgmt.png?theme=main&amp;v=202610191038"
-          alt="Formas de pagamento exibidas no site oficial da Canal Concept"
-          style="max-width:100%;height:auto;background:white;padding:8px;border-radius:4px;">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <a class="category" href="#destaques">
+              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=850&q=85" alt="Editorial de vestidos">
+              <div class="label">Vestidos</div>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a class="category" href="#destaques">
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=850&q=85" alt="Moda casual feminina">
+              <div class="label">Casual</div>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a class="category" href="#destaques">
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=850&q=85" alt="Peças e acessórios">
+              <div class="label">Essenciais</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0" id="destaques">
+      <div class="container">
+        <div class="section-heading">
+          <span>Seleção editorial</span>
+          <h2>Peças em destaque</h2>
+          <p class="small text-muted mt-3">
+            Exemplos ilustrativos. Não representam produtos disponíveis para compra.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-6 col-lg-3">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=650&q=85" alt="Inspiração de vestido">
+              <span class="product-badge">Inspiração</span>
+            </div>
+            <div class="product-info">
+              <h3>Vestidos contemporâneos</h3>
+              <p>Referência editorial</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=650&q=85" alt="Moda feminina casual">
+              <span class="product-badge">Inspiração</span>
+            </div>
+            <div class="product-info">
+              <h3>Looks casuais</h3>
+              <p>Referência editorial</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=650&q=85" alt="Look feminino urbano">
+              <span class="product-badge">Inspiração</span>
+            </div>
+            <div class="product-info">
+              <h3>Estilo urbano</h3>
+              <p>Referência editorial</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=650&q=85" alt="Roupas e acessórios">
+              <span class="product-badge">Inspiração</span>
+            </div>
+            <div class="product-info">
+              <h3>Essenciais do guarda-roupa</h3>
+              <p>Referência editorial</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="editorial" id="editorial">
+      <div class="container-fluid p-0">
+        <div class="row g-0 align-items-center">
+          <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85" alt="Editorial de moda feminina">
+          </div>
+          <div class="col-lg-6">
+            <div class="editorial-copy">
+              <span class="text-uppercase small" style="letter-spacing:2px;">Estilo e personalidade</span>
+              <h2>Vista sua essência.</h2>
+              <p>
+                A moda pode ser uma expressão da personalidade.
+                Nossa seleção visual apresenta referências que
+                valorizam a autenticidade, a versatilidade e a elegância.
+              </p>
+              <p>
+                Explore inspirações para criar combinações que
+                acompanham diferentes momentos da sua rotina.
+              </p>
+              <a href="#colecoes" class="btn-shop mt-3">
+                Explorar inspirações
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-heading">
+          <span>Sobre este projeto</span>
+          <h2>Moda com identidade</h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <p class="text-muted" style="font-size:15px;line-height:2;">
+              Essenza Moda é um modelo demonstrativo de página de moda
+              feminina, criado para apresentar um layout moderno,
+              elegante e responsivo. Este projeto não é uma loja
+              operacional e não realiza vendas ou pagamentos.
+            </p>
+            <p class="text-muted" style="font-size:14px;line-height:2;">
+              A referência institucional fornecida para o projeto
+              foi o site Canal Concept, cuja operação e identidade
+              comercial são independentes deste modelo.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-4">
+          <div class="col-md-4">
+            <div class="benefit">
+              <i class="bi bi-stars"></i>
+              <h3>Inspiração</h3>
+              <p>Ideias de moda feminina para diferentes ocasiões.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit">
+              <i class="bi bi-phone"></i>
+              <h3>Layout responsivo</h3>
+              <p>Visual adaptado para computadores, tablets e celulares.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit">
+              <i class="bi bi-palette"></i>
+              <h3>Design editorial</h3>
+              <p>Tipografia sofisticada, fotografias e tons neutros.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7">
+            <h2>Receba inspirações</h2>
+            <p class="mt-3 mb-4">
+              Formulário demonstrativo de newsletter.
+              Nenhum dado será enviado ou armazenado.
+            </p>
+            <form onsubmit="event.preventDefault(); alert('Este formulário é apenas demonstrativo.');">
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Seu endereço de e-mail" aria-label="E-mail" required>
+                <button type="submit">Cadastrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="brand mb-3" style="color:white;">ESSENZA</div>
+          <p>
+            Modelo independente de moda feminina.
+            Página criada para fins demonstrativos.
+          </p>
+          <p>
+            Este projeto não representa a Canal Concept
+            nem a NRB Fashion Company LTDA.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#colecoes">Coleções</a></li>
+            <li><a href="#destaques">Destaques</a></li>
+            <li><a href="#editorial">Editorial</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Referência institucional</h4>
+          <p>
+            Canal Concept<br>
+            NRB Fashion Company LTDA<br>
+            CNPJ: 39.269.713/0004-33<br>
+            Av. Tamboré, 1043<br>
+            Tamboré, Barueri - SP<br>
+            CEP: 06460-000
+          </p>
+          <p>
+            Dados fornecidos como referência,
+            não como identificação do operador
+            deste site demonstrativo.
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Portal oficial de referência</h4>
+          <p>
+            Para compras, atendimento, trocas,
+            políticas e informações oficiais,
+            consulte diretamente o site da Canal.
+          </p>
+          <p>
+            <a href="https://www.canal.com.br/" target="_blank" rel="noopener noreferrer">
+              www.canal.com.br
+              <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </p>
+          <p>
+            <a href="https://www.canal.com.br/institucional/contato" target="_blank" rel="noopener noreferrer">
+              Fale com a Canal Concept
+            </a>
+          </p>
+        </div>
       </div>
 
-      <!-- DADOS EMPRESARIAIS -->
-      <div class="col-lg-3 col-md-6">
-        <h4>DADOS DA EMPRESA OFICIAL</h4>
-        <p>
-          <strong>NRB FASHION COMPANY LTDA</strong><br>
-          Av. Tamboré, 1043<br>
-          Tamboré, Barueri - SP<br>
-          CEP: 06460-000<br>
-          CNPJ: 39.269.713/0004-33
-        </p>
-
-        <p>
-          Dados de referência da empresa indicada no
-          portal oficial. Este modelo demonstrativo
-          não representa uma loja autorizada.
-        </p>
+      <div class="copyright">
+        <div class="row g-3">
+          <div class="col-md-7">
+            © 2026 Essenza Moda — Projeto demonstrativo independente.
+          </div>
+          <div class="col-md-5 text-md-end">
+            HTML5 • CSS3 • Bootstrap 5
+          </div>
+        </div>
       </div>
-
     </div>
+  </footer>
 
-    <div class="copyright">
-      <p>
-        No site oficial, a inclusão de um produto na sacola
-        não garante seu preço. Em caso de variação,
-        prevalece o preço vigente na finalização da compra.
-      </p>
-
-      <p>
-        Modelo demonstrativo independente inspirado na Canal Concept.
-        Para compras e atendimento, acesse
-        <a href="https://www.canal.com.br/" target="_blank" rel="noopener noreferrer">
-          www.canal.com.br
-        </a>.
-      </p>
-    </div>
-  </div>
-</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
